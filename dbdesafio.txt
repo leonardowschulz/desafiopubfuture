@@ -1,0 +1,43 @@
+create database dbdesafio
+default character set utf8
+default collate utf8_general_ci;
+
+use dbdesafio;
+
+create table bancos (
+id int not null auto_increment,
+instituicao varchar(20),
+tipo varchar(20),
+saldo decimal(6,2),
+primary key (id)
+) default charset = utf8;
+
+create table receitas (
+id int not null auto_increment,
+valor decimal(6,2),
+dataRecebimento date,
+dataRecebimentoEsperado date,
+descricao varchar(20),
+conta varchar(10),
+tipoReceita varchar(10),
+primary key (id)
+) default charset = utf8;
+
+create table despesas (
+id int not null auto_increment,
+valor decimal(6,2),
+dataPagamento date,
+dataPagamentoEsperado date,
+tipoDespesa varchar(10),
+conta varchar(10),
+primary key (id)
+) default charset = utf8;
+
+INSERT INTO bancos (instituicao, tipo, saldo) VALUES
+('Especie','carteira','1000.00');
+
+INSERT INTO receitas (valor, dataRecebimento, dataRecebimentoEsperado, descricao, conta, tipoReceita) VALUES
+('3000.00', '2022-01-16 00:00:00', '2022-01-16 00:00:00', 'Salário de Janeiro', 'corrente', 'salario');
+
+INSERT INTO despesas (valor, dataPagamento, dataPagamentoEsperado, tipoDespesa, conta) VALUES
+('1000.00', '2022-01-16 00:00:00', '2022-01-16 00:00:00', 'moradia', 'corrente');
